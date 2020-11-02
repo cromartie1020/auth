@@ -1,0 +1,18 @@
+{% extends 'example/base.html' %}
+
+{% block title %}
+<title>Learning Log</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron">
+      <p>
+          {% for topic in t %}
+          <a href="{% url 'topic' topic.id %}"">{{ topic.id }}) {{ topic.text }}</a>
+            <br>
+          {% endfor %}
+      </p>
+    </div>
+</div>
+{% endblock content%}

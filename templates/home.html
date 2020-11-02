@@ -1,0 +1,31 @@
+{% extends 'example/base.html' %}
+{% load socialaccount %}
+{% block title %}
+<title>E-mail</title>
+{% endblock title %}
+
+{% block content %}
+{% if messages %} 
+Messages:
+	•	{% for message in messages %}
+	•	{{message}}
+	•	{% endfor %} 
+{% endif %}
+
+<h1>Cromarties Log in page.</h1>
+{% if user.is_authenticated %}
+<p>Welcome {{ user.username }} !!!</p>
+{% else %}
+<a href="{% provider_login_url 'github' %}">Sign Up</a>
+
+{% endif %}
+
+Menu:
+	•	{% if user.is_authenticated %}
+	•	Change E-mail
+	•	Sign Out
+	•	{% else %}
+	•	Sign In
+	•	Sign Up
+	•	{% endif %} 
+{% endblock content %}  

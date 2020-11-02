@@ -1,0 +1,20 @@
+{% extends 'example/base.html' %}
+
+{% block title %}
+<title>Learning Log</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron">
+      <p>
+          {{ t }}
+          {% for ent in entry%}
+          {{ ent }}
+          <br>
+          <br>
+          {% endfor %}
+      </p>
+    </div>
+</div>
+{% endblock content%}
